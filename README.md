@@ -8,4 +8,4 @@ My first C++ application - reads a FIFO from music player daemon, and graphs it 
  * There are bugs.
 
 Screenshot:
-![Screenshot](http://i.imgur.com/2wQp8)
+![Screenshot](http://i.imgur.com/2wQp8.png)
