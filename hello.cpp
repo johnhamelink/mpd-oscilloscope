@@ -32,7 +32,7 @@ int main (int argc, char **argv)
 
     startup(display, disp_data);
 
-    timer = al_create_timer(1.0 / 60); // Set the FPS to 60
+    timer = al_create_timer(1.0 / 42); // Set the FPS to 60
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_timer_event_source(timer));
     al_register_event_source(event_queue, al_get_keyboard_event_source());
@@ -82,13 +82,13 @@ void render(ALLEGRO_DISPLAY *display)
     int x1 = 0;
     int x2 = 0;
     int y1, y2;
-    ALLEGRO_COLOR lime = al_map_rgb(102, 255, 51);
+    ALLEGRO_COLOR blue = al_map_rgb(44, 117, 255);
+    int numPoints = (sizeof(freqPercent) / sizeof(freqPercent[0]));
 
-    for (int i = 0; i  <= 1024; i++) {
+    for (int i = 0; (i-1)  <= numPoints; i = (i+2)) {
         int x = i;
         int y = (halfScreen + freqPercent[i]);
-        if (y != halfScreen)
-            al_draw_pixel(x, y, lime);
+        al_draw_line(x, halfScreen, x, y, blue, 1);
     }
 
     al_flip_display();
@@ -147,8 +147,10 @@ int* getFifo()
 {
     int16_t buf[1024];
     ssize_t data = read(fifo, &buf, sizeof(buf));
-    for (int i = 0; i < 1024; i++) {
-        freqPercent[i] = (buf[i]) / 1e5 * 300;
+    if (data != -1) {
+        for (int i = 0; i < 1024; i++) {
+            freqPercent[i] = (buf[i] / 2e4) * (windowHeight / 5);
+        }
     }
 
     return freqPercent;
