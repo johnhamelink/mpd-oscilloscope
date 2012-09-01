@@ -1,3 +1,6 @@
+#ifndef _HELLO_H
+#define _HELLO_H
+
 #include <fstream>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -9,20 +12,19 @@ bool done;
 int windowHeight;
 int windowWidth;
 
-int fifo;
-int freqPercent[1024];
-unsigned *frequencyMagnitude;
-
 int count;
 ALLEGRO_FONT *font18;
 ALLEGRO_EVENT_QUEUE *event_queue;
 ALLEGRO_TIMER *timer;
 
-int startup(ALLEGRO_DISPLAY *display, ALLEGRO_DISPLAY_MODE disp_data);
+int startup(ALLEGRO_DISPLAY *display);
 int shutdown(ALLEGRO_DISPLAY *display);
 void render(ALLEGRO_DISPLAY *display);
-void setFifo();
-int* getFifo();
 
-/*#define SHOWFPS */
-/*#define FULLSCREEN*/
+/*#define SHOWFPS
+#define FULLSCREEN
+
+#define WINDOW_WIDTH  2560
+#define WINDOW_HEIGHT 1440*/
+
+#endif

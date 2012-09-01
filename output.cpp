@@ -1,7 +1,4 @@
-#ifndef _OUTPUT_H
-#define _OUTPUT_H
 #include "output.h"
-#endif
 
 using namespace std;
 
