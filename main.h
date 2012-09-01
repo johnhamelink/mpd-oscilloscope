@@ -1,6 +1,7 @@
 #ifndef _HELLO_H
 #define _HELLO_H
 
+#include "config.h"
 #include <fstream>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -20,11 +21,5 @@ ALLEGRO_TIMER *timer;
 int startup(ALLEGRO_DISPLAY *display);
 int shutdown(ALLEGRO_DISPLAY *display);
 void render(ALLEGRO_DISPLAY *display);
-
-/*#define SHOWFPS
-#define FULLSCREEN
-
-#define WINDOW_WIDTH  2560
-#define WINDOW_HEIGHT 1440*/
 
 #endif

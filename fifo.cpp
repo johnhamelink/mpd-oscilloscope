@@ -4,7 +4,7 @@ using namespace std;
 
 void setFifo()
 {
-    fifo = open("/home/john/.mpd/mpd.fifo", O_RDONLY | O_NONBLOCK);
+    fifo = open(FIFO_PATH, O_RDONLY | O_NONBLOCK);
 }
 
 int* getFifo(int windowHeight)
